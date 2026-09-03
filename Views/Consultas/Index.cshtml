@@ -1,0 +1,30 @@
+@model IEnumerable<Consulta>
+@{ ViewData["Title"] = "Minhas consultas"; }
+<div class="page-heading">
+    <div><span class="eyebrow">Área autenticada</span><h1>Minhas consultas</h1></div>
+    <a class="button" asp-action="Create">+ Nova consulta</a>
+</div>
+@if (!Model.Any())
+{
+    <div class="empty"><h2>Nenhuma consulta cadastrada</h2><p>Comece adicionando sua primeira consulta.</p><a class="button" asp-action="Create">Cadastrar consulta</a></div>
+}
+else
+{
+    <div class="table-wrap"><table>
+        <thead><tr><th>Especialidade</th><th>Data/Hora</th><th>Descrição</th><th>Ações</th></tr></thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Especialidade</td>
+                <td>@item.DataHora.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.Descricao</td>
+                <td class="actions-cell">
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table></div>
+}

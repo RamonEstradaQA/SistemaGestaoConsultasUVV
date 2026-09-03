@@ -1,0 +1,15 @@
+@{ ViewData["Title"] = "Login"; }
+<div class="form-card">
+    <h1>Entrar</h1>
+    <p class="muted">Acesse suas consultas.</p>
+    <form asp-action="Login" method="post">
+        <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required autocomplete="email" />
+        <label for="senha">Senha</label>
+        <input id="senha" name="senha" type="password" required autocomplete="current-password" />
+        <button class="button" type="submit">Entrar</button>
+    </form>
+    <p class="muted">Ainda não possui conta? <a asp-action="Register">Cadastre-se</a>.</p>
+</div>

@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Início";
+}
+<section class="hero">
+    <span class="eyebrow">ASP.NET Core MVC + EF Core</span>
+    <h1>Sistema de Gestão de Consultas UVV</h1>
+    <p>Cadastre sua conta, faça login e gerencie suas consultas de forma segura.</p>
+    <div class="actions">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <a class="button" asp-controller="Consultas" asp-action="Index">Ver minhas consultas</a>
+        }
+        else
+        {
+            <a class="button" asp-controller="Account" asp-action="Register">Criar minha conta</a>
+            <a class="button secondary" asp-controller="Account" asp-action="Login">Fazer login</a>
+        }
+    </div>
+</section>
+<section class="cards">
+    <article><h2>Arquitetura MVC</h2><p>Models, Views e Controllers separados com injeção de dependência.</p></article>
+    <article><h2>EF Core</h2><p>Persistência Code First com SQL Server e Migrations.</p></article>
+    <article><h2>Segurança</h2><p>Cookies de autenticação, autorização, hash de senha e antiforgery.</p></article>
+</section>

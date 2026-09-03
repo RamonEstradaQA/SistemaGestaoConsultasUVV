@@ -1,0 +1,21 @@
+@model Usuario
+@{ ViewData["Title"] = "Criar conta"; }
+<div class="form-card">
+    <h1>Criar conta</h1>
+    <p class="muted">Preencha seus dados para começar.</p>
+    <form asp-action="Register" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" autocomplete="name" />
+        <span asp-validation-for="Nome" class="validation"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" autocomplete="email" />
+        <span asp-validation-for="Email" class="validation"></span>
+        <label asp-for="Senha">Senha</label>
+        <input asp-for="Senha" type="password" autocomplete="new-password" />
+        <span asp-validation-for="Senha" class="validation"></span>
+        <label for="senhaConfirmacao">Confirmar senha</label>
+        <input id="senhaConfirmacao" name="senhaConfirmacao" type="password" autocomplete="new-password" />
+        <button class="button" type="submit">Cadastrar</button>
+    </form>
+</div>

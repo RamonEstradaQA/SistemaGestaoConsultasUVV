@@ -1,0 +1,10 @@
+@model Consulta
+@{ ViewData["Title"] = "Nova consulta"; }
+<div class="form-card wide"><h1>Nova consulta</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="validation"></div>
+    <label asp-for="Especialidade"></label><input asp-for="Especialidade" placeholder="Ex.: Cardiologia" /><span asp-validation-for="Especialidade" class="validation"></span>
+    <label asp-for="DataHora"></label><input asp-for="DataHora" type="datetime-local" /><span asp-validation-for="DataHora" class="validation"></span>
+    <label asp-for="Descricao"></label><textarea asp-for="Descricao" rows="5" placeholder="Descreva o motivo da consulta"></textarea><span asp-validation-for="Descricao" class="validation"></span>
+    <div class="actions"><button class="button" type="submit">Salvar consulta</button><a class="button secondary" asp-action="Index">Cancelar</a></div>
+</form></div>
