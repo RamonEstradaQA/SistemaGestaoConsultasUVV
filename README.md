@@ -1,31 +1,31 @@
 # Sistema de Gestão de Consultas UVV
 
-Projeto acadêmico da disciplina **Desenvolvimento Web Back-end**, desenvolvido em **C# + ASP.NET Core MVC + Entity Framework Core + SQL Server**.
+Projeto acadêmico da disciplina **Desenvolvimento Web Back-end**, desenvolvido em **C# + ASP.NET Core MVC + Entity Framework Core + SQL Server**. Projeto acadêmico desenvolvido para a UVV.
 
-## 1. Requisitos
+## 1\. Requisitos
 
-- .NET 8 SDK
-- SQL Server 2019+ ou SQL Server Express/Developer
-- Visual Studio 2022, VS Code ou Rider
+* .NET 8 SDK
+* SQL Server 2019+ ou SQL Server Express/Developer
+* Visual Studio 2022, VS Code ou Rider
 
-## 2. Tecnologias e conceitos utilizados
+## 2\. Tecnologias e conceitos utilizados
 
-- Arquitetura MVC: Models, Views e Controllers
-- Entity Framework Core 8
-- Abordagem Code First
-- SQL Server
-- Migrations
-- Dependency Injection
-- Cookie Authentication
-- `[Authorize]`
-- Data Annotations: `[Required]`, `[EmailAddress]` e `[StringLength]`
-- Hash de senha com `PasswordHasher<Usuario>`
-- `ValidateAntiForgeryToken` nos POSTs
-- CRUD de consultas
-- Relacionamento entre `Usuario` e `Consulta`
-- Filtragem das consultas pelo usuário autenticado
+* Arquitetura MVC: Models, Views e Controllers
+* Entity Framework Core 8
+* Abordagem Code First
+* SQL Server
+* Migrations
+* Dependency Injection
+* Cookie Authentication
+* `\[Authorize]`
+* Data Annotations: `\[Required]`, `\[EmailAddress]` e `\[StringLength]`
+* Hash de senha com `PasswordHasher<Usuario>`
+* `ValidateAntiForgeryToken` nos POSTs
+* CRUD de consultas
+* Relacionamento entre `Usuario` e `Consulta`
+* Filtragem das consultas pelo usuário autenticado
 
-## 3. Configuração do banco de dados
+## 3\. Configuração do banco de dados
 
 1. Abra o arquivo `appsettings.json`.
 2. Ajuste a `DefaultConnection` conforme a instalação do SQL Server.
@@ -33,12 +33,12 @@ Projeto acadêmico da disciplina **Desenvolvimento Web Back-end**, desenvolvido 
 Exemplo para SQL Server local com autenticação do Windows:
 
 ```json
-"DefaultConnection": "Server=localhost;Database=GestaoConsultasUVV;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"
+"DefaultConnection": "Server=localhost;Database=GestaoConsultasUVV;Trusted\_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"
 ```
 
-Se sua instalação utilizar uma instância diferente, altere o valor de `Server`, por exemplo `localhost\\SQLEXPRESS`.
+Se sua instalação utilizar uma instância diferente, altere o valor de `Server`, por exemplo `localhost\\\\SQLEXPRESS`.
 
-## 4. Criar/atualizar o banco
+## 4\. Criar/atualizar o banco
 
 O projeto já contém a migration inicial em `Migrations/`.
 
@@ -62,7 +62,7 @@ dotnet ef database update
 
 > Não é necessário executar `dotnet ef migrations add InitialCreate`, pois a migration inicial já está incluída no repositório.
 
-## 5. Executar a aplicação
+## 5\. Executar a aplicação
 
 ```bash
 dotnet restore
@@ -71,7 +71,7 @@ dotnet run
 
 Também é possível executar diretamente pelo Visual Studio com o perfil HTTPS.
 
-## 6. Funcionalidades
+## 6\. Funcionalidades
 
 ### Cadastro
 
@@ -85,24 +85,24 @@ O usuário informa e-mail e senha. Em caso de sucesso, a aplicação cria uma au
 
 Usuários autenticados podem:
 
-- cadastrar uma consulta;
-- visualizar suas consultas;
-- editar suas consultas;
-- excluir suas consultas.
+* cadastrar uma consulta;
+* visualizar suas consultas;
+* editar suas consultas;
+* excluir suas consultas.
 
-As ações de consulta estão protegidas com `[Authorize]`. Além disso, as consultas são sempre filtradas pelo `UsuarioId` do usuário autenticado, impedindo acesso, edição ou exclusão de registros pertencentes a outro usuário.
+As ações de consulta estão protegidas com `\[Authorize]`. Além disso, as consultas são sempre filtradas pelo `UsuarioId` do usuário autenticado, impedindo acesso, edição ou exclusão de registros pertencentes a outro usuário.
 
-## 7. Segurança
+## 7\. Segurança
 
-- `UseAuthentication()` é executado antes de `UseAuthorization()` no pipeline.
-- Rotas de consultas utilizam `[Authorize]`.
-- POSTs utilizam `ValidateAntiForgeryToken`.
-- O cookie de autenticação é `HttpOnly`, `Secure` e `SameSite=Strict`.
-- As senhas são armazenadas somente como hash usando `PasswordHasher<Usuario>`.
-- O retorno pós-login utiliza `Url.IsLocalUrl` para evitar redirecionamento para URL externa.
-- O `UsuarioId` das consultas nunca é confiado ao formulário: ele é obtido da identidade autenticada no servidor.
+* `UseAuthentication()` é executado antes de `UseAuthorization()` no pipeline.
+* Rotas de consultas utilizam `\[Authorize]`.
+* POSTs utilizam `ValidateAntiForgeryToken`.
+* O cookie de autenticação é `HttpOnly`, `Secure` e `SameSite=Strict`.
+* As senhas são armazenadas somente como hash usando `PasswordHasher<Usuario>`.
+* O retorno pós-login utiliza `Url.IsLocalUrl` para evitar redirecionamento para URL externa.
+* O `UsuarioId` das consultas nunca é confiado ao formulário: ele é obtido da identidade autenticada no servidor.
 
-## 8. Estrutura do projeto
+## 8\. Estrutura do projeto
 
 ```text
 Controllers/
@@ -112,7 +112,7 @@ Controllers/
 Data/
   ApplicationDbContext.cs
 Migrations/
-  20260903010000_InitialCreate.cs
+  20260903010000\_InitialCreate.cs
   ApplicationDbContextModelSnapshot.cs
 Models/
   Usuario.cs
@@ -128,7 +128,7 @@ Program.cs
 appsettings.json
 ```
 
-## 9. Roteiro do vídeo demonstrativo
+## 9\. Roteiro do vídeo demonstrativo
 
 O vídeo obrigatório deve mostrar, no mínimo:
 
@@ -140,12 +140,13 @@ O vídeo obrigatório deve mostrar, no mínimo:
 6. exclusão da consulta;
 7. tentativa de acessar `/Consultas` sem autenticação, mostrando o redirecionamento para o login.
 
-**Link do vídeo:** `COLOQUE_AQUI_O_LINK_DO_LOOM_OU_YOUTUBE`
+**Link do vídeo:** `COLOQUE\_AQUI\_O\_LINK\_DO\_LOOM\_OU\_YOUTUBE`
 
-## 10. GitHub
+## 10\. GitHub
 
-**Link do repositório:** `COLOQUE_AQUI_O_LINK_DO_GITHUB`
+**Link do repositório:** `COLOQUE\_AQUI\_O\_LINK\_DO\_GITHUB`
 
-## 11. Entrega no portal UVV
+## 11\. Entrega no portal UVV
 
 Apenas um integrante deve enviar o PDF. O documento deve conter os participantes do grupo em ordem alfabética e o link do repositório GitHub.
+
